@@ -1,7 +1,7 @@
 {
 	"env": {
 		"browser": true,
-		"es2023": true
+		"es2021": true
 	},
 	"ignorePatterns": ["node_modules", "dist", "build"],
 	"extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "plugin:import/errors", "plugin:import/warnings"],
@@ -15,7 +15,7 @@
 	"plugins": ["react", "prettier", "import"],
 	"rules": {
 		"indent": ["error", "tab"],
-		"prettier/prettier": "error",
+		"prettier/prettier": ["error", { "endOfLine": "auto" }],
 		"linebreak-style": [0, "unix"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],

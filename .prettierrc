@@ -1,7 +1,7 @@
 {
 	"useTabs": true,
 	"semi": true,
-	"endOfLine": "lf",
+	"endOfLine": "auto",
 	"jsxSingleQuote": true,
 	"singleQuote": true,
 	"trailingComma": "es5",

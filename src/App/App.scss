@@ -1,0 +1,13 @@
+.film {
+	&__inner {
+		background-color: #fff;
+		padding: 4rem 4.8rem 2rem;
+	}
+}
+.error-internet {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
