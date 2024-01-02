@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pagination } from 'antd';
+import PropTypes from 'prop-types';
 import './Footer.scss';
 
 const Footer = ({ page, changePage }) => {
@@ -8,9 +9,16 @@ const Footer = ({ page, changePage }) => {
 	};
 	return (
 		<div className='footer'>
-			<Pagination defaultCurrent={page.current} total={Math.min(page.total, 500) * 20} showSizeChanger={false} pageSize={20} onChange={handlePagination} />
+			<Pagination total={Math.min(page.total, 500) * 20} showSizeChanger={false} pageSize={20} onChange={handlePagination} current={page.current} />
 		</div>
 	);
 };
 
 export default Footer;
+Footer.propTypes = {
+	page: PropTypes.object,
+	changePage: PropTypes.func,
+};
+Footer.defaultProps = {
+	page: {},
+};

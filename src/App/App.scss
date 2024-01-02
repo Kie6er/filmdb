@@ -11,3 +11,13 @@
 	align-items: center;
 	justify-content: center;
 }
+
+@media (max-width: 48em) {
+	.film {
+		background-color: #fff;
+		&__inner {
+			padding: 0;
+			padding-bottom: 4rem;
+		}
+	}
+}

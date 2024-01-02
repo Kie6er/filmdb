@@ -25,3 +25,22 @@
 		}
 	}
 }
+
+@media (max-width: 48em) {
+	.film-list {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4rem;
+		margin-bottom: 4rem;
+
+		.anticon.anticon-loading.anticon-spin {
+			width: 20rem;
+			height: 20rem;
+		}
+		.ant-alert {
+			margin-top: 10rem;
+		}
+	}
+}
