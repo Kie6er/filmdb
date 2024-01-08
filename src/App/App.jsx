@@ -24,9 +24,21 @@ const App = () => {
 	const [currentRating, setCurrentRating] = useState([]);
 
 	useEffect(() => {
-		newSession();
-		allFilmsQuery();
-	}, []);
+		const savedSessionId = localStorage.getItem('guestSessionId');
+		if (savedSessionId) {
+			setSessionID(savedSessionId);
+			setTab('search');
+		} else {
+			createSession()
+				.then(res => {
+					localStorage.setItem('guestSessionId', res.guest_session_id);
+					setSessionID(res.guest_session_id);
+				})
+				.catch(onError);
+		}
+		if (sessionID) ratedMovies();
+	}, [sessionID]);
+
 	const changePage = page => {
 		setLoad(true);
 		tab === 'rated' ? ratedMovies(tab, page) : value ? searchFilmsQuery(value, page) : allFilmsQuery(page);
@@ -74,15 +86,7 @@ const App = () => {
 		[]
 	);
 
-	const newSession = () => {
-		createSession()
-			.then(res => {
-				setSessionID(res.guest_session_id);
-			})
-			.catch(onError);
-	};
-
-	const ratedMovies = async (tab, page = 1) => {
+	const ratedMovies = async (tab = 'search', page = 1) => {
 		setTab(tab);
 		setLoad(true);
 
